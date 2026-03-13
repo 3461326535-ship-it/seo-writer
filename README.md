@@ -124,79 +124,64 @@
 
 ### 目录树
 projects/
-│  .coze                    # 配置文件（隐藏类）
-│  .gitignore               # Git忽略规则文件
-│  AGENTS.md                # 代理（大模型）相关说明文档
-│  README.md                # 项目核心说明文档
-│  requirements.txt         # Python依赖清单
-│
-├─assets/                   # 静态资源目录（暂无文件）
-│
-├─config/                   # 节点配置目录
-│      confirm_keywords_cfg.json         # 确认焦点关键词配置
-│      convert_to_html_cfg.json          # 中文HTML转换配置
-│      convert_to_html_chinese_cfg.json  # 中文HTML转换配置
-│      generate_titles_cfg.json          # 拟写SEO标题配置
-│      translate_to_chinese_cfg.json     # 中文翻译配置
-│      write_article_cfg.json            # 撰写文章配置
-│
-├─scripts/                  # 脚本工具目录
-│      http_run.sh          # HTTP运行脚本（Shell）
-│      load_env.py          # 加载环境变量（Python）
-│      load_env.sh          # 加载环境变量（Shell）
-│      local_run.sh         # 本地运行脚本（Shell）
-│      pack.sh              # 打包脚本（Shell）
-│      setup.sh             # 环境初始化脚本（Shell）
-│
-└─src/                      # 核心源代码目录
-    │  main.py              # 项目入口文件
-    │  __init__.py          # 包初始化文件
-    │
-    ├─agents/               # 代理逻辑目录
-    │      __init__.py      # 包初始化文件
-    │
-    ├─graphs/               # 工作流/图逻辑目录
-    │  │  graph.py          # 图结构定义
-    │  │  state.py          # 状态管理
-    │  │  __init__.py       # 包初始化文件
-    │  │
-    │  └─nodes/             # 核心节点脚本目录
-    │          confirm_keywords_node.py         # 确认焦点关键词节点
-    │          convert_to_html_chinese_node.py  # 中文HTML转换节点
-    │          convert_to_html_node.py          # 英文HTML转换节点
-    │          fetch_reference_content_node.py  # 抓取参考内容节点
-    │          generate_titles_node.py          # 生成SEO标题节点
-    │          translate_to_chinese_node.py     # 翻译为中文节点
-    │          write_article_node.py            # 撰写文章节点
-    │          __init__.py                      # 包初始化文件
-    │
-    ├─storage/              # 存储层目录
-    │  │  __init__.py       # 包初始化文件
-    │  │
-    │  ├─database/          # 数据库操作目录
-    │  │  │  db.py          # 数据库核心逻辑
-    │  │  │  __init__.py    # 包初始化文件
-    │  │  │
-    │  │  └─shared/         # 数据库共享模型
-    │  │          model.py  # 数据模型定义
-    │  │          __init__.py # 包初始化文件
-    │  │
-    │  ├─memory/            # 内存存储目录
-    │  │      memory_saver.py # 内存数据保存逻辑
-    │  │      __init__.py   # 包初始化文件
-    │  │
-    │  └─s3/                # S3存储对接目录
-    │          s3_storage.py # S3存储操作
-    │          __init__.py  # 包初始化文件
-    │
-    ├─tools/                # 工具函数目录（暂无具体文件）
-    │      __init__.py      # 包初始化文件
-    │
-    └─utils/                # 通用工具目录
-        │  __init__.py      # 包初始化文件
-        │
-        └─file/             # 文件操作工具
-                file.py     # 文件读写/处理逻辑
-                __init__.py # 包初始化文件
+├── .coze                    # 配置文件（隐藏类）
+├── .gitignore               # Git忽略规则文件
+├── AGENTS.md                # 代理（大模型）相关说明文档
+├── README.md                # 项目核心说明文档
+├── requirements.txt         # Python依赖清单
+├── assets/                  # 静态资源目录（暂无文件）
+├── config/                  # 节点配置目录
+│   ├── confirm_keywords_cfg.json         # 确认焦点关键词配置
+│   ├── convert_to_html_cfg.json          # 英文HTML转换配置
+│   ├── convert_to_html_chinese_cfg.json  # 中文HTML转换配置
+│   ├── generate_titles_cfg.json          # 拟写SEO标题配置
+│   ├── translate_to_chinese_cfg.json     # 中文翻译配置
+│   └── write_article_cfg.json            # 撰写文章配置
+├── scripts/                 # 脚本工具目录
+│   ├── http_run.sh          # HTTP运行脚本（Shell）
+│   ├── load_env.py          # 加载环境变量（Python）
+│   ├── load_env.sh          # 加载环境变量（Shell）
+│   ├── local_run.sh         # 本地运行脚本（Shell）
+│   ├── pack.sh              # 打包脚本（Shell）
+│   └── setup.sh             # 环境初始化脚本（Shell）
+└── src/                     # 核心源代码目录
+    ├── main.py              # 项目入口文件
+    ├── __init__.py          # 包初始化文件
+    ├── agents/              # 代理逻辑目录
+    │   └── __init__.py
+    ├── graphs/              # 工作流/图逻辑目录
+    │   ├── graph.py         # 图结构定义
+    │   ├── state.py         # 状态管理
+    │   ├── __init__.py
+    │   └── nodes/           # 核心节点脚本目录
+    │       ├── confirm_keywords_node.py         # 确认焦点关键词节点
+    │       ├── convert_to_html_chinese_node.py  # 中文HTML转换节点
+    │       ├── convert_to_html_node.py          # 英文HTML转换节点
+    │       ├── fetch_reference_content_node.py # 抓取参考内容节点
+    │       ├── generate_titles_node.py          # 生成SEO标题节点
+    │       ├── translate_to_chinese_node.py     # 翻译为中文节点
+    │       ├── write_article_node.py            # 撰写文章节点
+    │       └── __init__.py
+    ├── storage/             # 存储层目录
+    │   ├── __init__.py
+    │   ├── database/        # 数据库操作目录
+    │   │   ├── db.py        # 数据库核心逻辑
+    │   │   ├── __init__.py
+    │   │   └── shared/      # 数据库共享模型
+    │   │       ├── model.py # 数据模型定义
+    │   │       └── __init__.py
+    │   ├── memory/          # 内存存储目录
+    │   │   ├── memory_saver.py # 内存数据保存逻辑
+    │   │   └── __init__.py
+    │   └── s3/              # S3存储对接目录
+    │       ├── s3_storage.py # S3存储操作
+    │       └── __init__.py
+    ├── tools/               # 工具函数目录（暂无具体文件）
+    │   └── __init__.py
+    └── utils/               # 通用工具目录
+        ├── __init__.py
+        └── file/            # 文件操作工具
+            ├── file.py      # 文件读写/处理逻辑
+            └── __init__.py
 
 
